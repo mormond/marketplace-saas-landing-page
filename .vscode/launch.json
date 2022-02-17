@@ -8,11 +8,29 @@
       "type": "node-terminal"
     },
     {
+      "name": "SWA: Run swa-saas-offer-python",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:4280",
+      "preLaunchTask": "swa: start swa-saas-offer-python",
+      "webRoot": "${workspaceFolder}/",
+      "timeout": 30000
+    },
+    {
       "name": "Attach to Python Functions",
       "type": "python",
       "request": "attach",
       "port": 9091,
       "preLaunchTask": "func: host start"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Server/Client",
+      "configurations": [
+        "Attach to Python Functions",
+        "SWA: Run swa-saas-offer-python"
+      ]
     }
   ]
 }

@@ -30,7 +30,7 @@
     },
     {
       "type": "shell",
-      "command": "swa start http://localhost:3000  --api-location='./api' --run='npm start' --devserver-timeout=30000",
+      "command": "swa start http://localhost:3000 --api-location='http://localhost:7071' --run='npm start' --devserver-timeout=30000",
       "problemMatcher": [
         "$swa-watch"
       ],
