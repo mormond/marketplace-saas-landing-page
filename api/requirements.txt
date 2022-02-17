@@ -3,9 +3,5 @@
 # Manually managing azure-functions-worker may cause unexpected issues
 
 azure-functions
-json
-logging
-os
 azure.identity
 azuremarketplace.microsoft.marketplace.saas
-urllib
