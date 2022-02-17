@@ -20,7 +20,7 @@ function App() {
       <code>{JSON.stringify(value, replacer, space)}</code>
     </pre>
   )
-
+  
   useEffect(() => {
     (async function () {
       const { text } = await (await fetch(`/api/resolve_token`, {
@@ -33,6 +33,7 @@ function App() {
       setData(text);
 
     })();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div><div><Log value={data}></Log></div><div><AuthButton /></div></div>;
