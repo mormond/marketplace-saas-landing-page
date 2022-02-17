@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
 
+function AuthButton() {
+  const authorise = () => {
+    // Call the authorise API
+    console.log("Hello");
+  }
+  return <button onClick={authorise}>Authorise</button>;
+}
+
 function App() {
   const [data, setData] = useState('');
 
@@ -15,7 +23,7 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const { text } = await (await fetch(`/api/message`, {
+      const { text } = await (await fetch(`/api/resolve_token`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -27,7 +35,7 @@ function App() {
     })();
   }, []);
 
-  return <div><Log value={data}></Log></div>;
+  return <div><div><Log value={data}></Log></div><div><AuthButton /></div></div>;
 }
 
 export default App;
