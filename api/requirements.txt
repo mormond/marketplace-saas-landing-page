@@ -4,4 +4,4 @@
 
 azure-functions
 azure.identity
-azuremarketplace.microsoft.marketplace.saas
+azuremarketplace
