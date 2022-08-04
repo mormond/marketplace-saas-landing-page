@@ -32,6 +32,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     resolved_token = saas.fulfillment_operations.resolve(
         x_ms_marketplace_token=url_decoded_mp_token)
 
+    if resolved_token is None:
+        return func.HttpResponse(json.dumps({"text": "No valid token found."}))
+
     my_token = {
         "id": resolved_token.id,
         "subscriptionName": resolved_token.subscription_name,
@@ -58,4 +61,4 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         "sessionMode": resolved_token.subscription.session_mode
     }
 
-    return func.HttpResponse(json.dumps({"text": my_token}))
+    return func.HttpResponse(json.dumps({ "text": my_token }))
