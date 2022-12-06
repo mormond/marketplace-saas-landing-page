@@ -1,5 +1,8 @@
 {
     "navigationFallback": {
         "rewrite": "/index.html"
-    }
+    },
+    "platform": {
+        "apiRuntime": "python:3.8"
+  }
 }
