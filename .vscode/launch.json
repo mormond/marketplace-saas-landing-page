@@ -1,6 +1,7 @@
 {
   "version": "0.2.0",
   "configurations": [
+
     {
       "command": "npm start",
       "name": "Run npm start",
@@ -10,7 +11,7 @@
     {
       "name": "SWA: Run swa-saas-offer-python",
       "request": "launch",
-      "type": "pwa-chrome",
+      "type": "chrome",
       "url": "http://localhost:4280",
       "preLaunchTask": "swa: start swa-saas-offer-python",
       "webRoot": "${workspaceFolder}/",
