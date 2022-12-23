@@ -15,6 +15,14 @@ This is a simple (crude) landing page implementation for a Microsoft commercial 
 * In Partner Center, update the offer technical configuration with landing page and app registration details
 * Re-publish for the changes to take effect
 
+## Example Site
+
+### Initial Landing Page
+![Landing page before token decode.](./.media/landingpage1.png)
+
+### After Token Decode
+![Landing page after token decode.](./.media/landingpage2.png)
+
 ## References
 [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [React](https://reactjs.org/) apps in minutes. Use this repo with the [React quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=react) to build and customize a new static site.
 
