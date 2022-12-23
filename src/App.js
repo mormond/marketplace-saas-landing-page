@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import './index.css';
 
 function App() {
+  const [summaryToken, setSummaryToken] = useState({});
   const [decodedToken, setDecodedToken] = useState({});
   const [response, setResponse] = useState('');
   const [searchParams] = useSearchParams();
@@ -18,7 +19,8 @@ function App() {
     if (response) {
       console.log(response);
       const tokenObject = JSON.parse(response);
-      setDecodedToken(tokenObject);
+      setSummaryToken(tokenObject.summary)
+      setDecodedToken(tokenObject.full);
     }
   }, [response]);
 
@@ -32,8 +34,8 @@ function App() {
         body: JSON.stringify({ marketplace_token: queryToken })
       })).json();
 
-      setResponse(JSON.stringify(token.text, null, 2));
-      setDecodedToken(JSON.parse(response));
+      setResponse(JSON.stringify(token, null, 2));
+      //setDecodedToken(JSON.parse(response));
 
     } catch (error) {
       return;
@@ -52,12 +54,17 @@ function App() {
     </div>
 
     <div>
-      <h3>Decoded Token</h3>
+      <h3>Token Summary</h3>
+      <Log isJson={true} value={summaryToken} />
+    </div>
+
+    <div>
+      <h3>Full Token</h3>
       <Log isJson={true} value={decodedToken} />
     </div>
 
     <button onClick={() => decodeToken()}
-      className="button">
+      className='button'>
       Decode Token
     </button>
 
