@@ -12,7 +12,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     try:
         logging.info('Get payload')
-        logging.info(req.get())
+        logging.info(req.get_body())
         req_body = req.get_json()
     except ValueError:
         return func.HttpResponse(status_code=400)
