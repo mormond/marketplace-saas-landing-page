@@ -37,10 +37,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         operations_headers = {'Authorization': f"Bearer {bearer_token}", 'Content-Type': 'application/json'}
         operations_data = { 'status': 'Failure' }
 
+        logging.info('Calling path operation - failure')
         operations_r = requests.patch(operations_url, headers=operations_headers, data=operations_data)
         response = operations_r.json()
 
-        if (resolve_r.status_code != 200):
+        if (response.status_code != 200):
+            logging.info(f"Patch operation failed. Status code: {operations_r.status_code}")
             return func.HttpResponse(status_code=resolve_r.status_code, body=json.dumps({'summary': 'Error calling patch operation.', 'full': 'Error calling patch operation.'}))
 
     try: 
