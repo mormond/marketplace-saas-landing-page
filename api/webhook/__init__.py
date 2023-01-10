@@ -10,7 +10,6 @@ import sys
 sys.path.append('../helpers')
 import helpers
 
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
     logging.info('Webhook called.')
@@ -41,9 +40,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         operations_r = requests.patch(operations_url, headers=operations_headers, data=operations_data)
         response = operations_r.json()
 
-        if (response.status_code != 200):
+        if (operations_r.status_code != 200):
             logging.info(f"Patch operation failed. Status code: {operations_r.status_code}")
-            return func.HttpResponse(status_code=resolve_r.status_code, body=json.dumps({'summary': 'Error calling patch operation.', 'full': 'Error calling patch operation.'}))
+            return func.HttpResponse(status_code=operations_r.status_code, body=json.dumps({'summary': 'Error calling patch operation.', 'full': 'Error calling patch operation.'}))
 
     try: 
         web_ack = json.loads(os.environ['WEBHOOK_ACK'])
