@@ -36,8 +36,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         operations_headers = {'Authorization': f"Bearer {bearer_token}", 'Content-Type': 'application/json'}
         operations_data = { 'status': 'Failure' }
 
-        logging.info('Calling path operation - failure')
-        operations_r = requests.patch(operations_url, headers=operations_headers, data=operations_data)
+        logging.info(f"Calling operations.patch(Failure): {operations_url}")
+        operations_r = requests.patch(operations_url, headers=operations_headers, json=operations_data)
         response = operations_r.json()
 
         if (operations_r.status_code != 200):
