@@ -32,7 +32,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         subscriptionId = req_body['subscriptionId']
         operationId = req_body['id']
 
-        operations_url = 'https://marketplaceapi.microsoft.com/api/saas/subscriptions/subscriptionId/operations/operationId?api-version=2018-08-31'
+        operations_url = f"https://marketplaceapi.microsoft.com/api/saas/subscriptions/{subscriptionId}/operations/{operationId}?api-version=2018-08-31"
         operations_headers = {'Authorization': f"Bearer {bearer_token}", 'Content-Type': 'application/json'}
         operations_data = { 'status': 'Failure' }
 
