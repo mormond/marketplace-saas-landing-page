@@ -38,7 +38,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
         logging.info(f"Calling operations.patch(Failure): {operations_url}")
         operations_r = requests.patch(operations_url, headers=operations_headers, json=operations_data)
-        response = operations_r.json()
 
         if (operations_r.status_code != 200):
             logging.info(f"Patch operation failed. Status code: {operations_r.status_code}")
