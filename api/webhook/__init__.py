@@ -6,8 +6,9 @@ from urllib import parse
 import azure.functions as func
 import sys
  
-# setting path
-sys.path.append('../helpers')
+script_dir = os.path.dirname( __file__ )
+helpers_dir = os.path.join( script_dir, '..', 'helpers' )
+sys.path.append( helpers_dir )
 import helpers
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
