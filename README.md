@@ -1,3 +1,7 @@
+# Note
+
+## This repo has been retired in favour of [Marketplace SaaS Offer Landing Page](https://github.com/mormond/simple-marketplace-saas-landing-page)
+
 # Marketplace SaaS Offer Landing Page
 
 ## Overview
